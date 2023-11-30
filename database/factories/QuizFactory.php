@@ -17,12 +17,12 @@ class QuizFactory extends Factory
      */
     public function definition()
     {
-        return [
+       
             return [
                 'title' => fake()->sentence,
                 'description' => fake()->paragraph,
                 'module_id' => \App\Models\Module::inRandomOrder()->first()->id,
              ];
-        ];
+       
     }
 }
