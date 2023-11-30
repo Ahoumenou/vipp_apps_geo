@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
+            $table->string('reponse');
+            $table->foreignUuid('question_id');
             $table->timestamps();
+            $table->foreign('question_id')->references('id')->on('questions')->cascadeOnDelete();
         });
     }
 

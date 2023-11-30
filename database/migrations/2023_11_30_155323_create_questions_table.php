@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('type')->nullable();
+            $table->text('question')->nullable();
+            $table->foreignUuid('quiz_id');
             $table->timestamps();
+            $table->foreign('quiz_id')->references('id')->on('quiz')->cascadeOnDelete();
         });
     }
 
