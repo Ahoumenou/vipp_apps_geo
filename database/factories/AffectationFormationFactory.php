@@ -18,6 +18,8 @@ class AffectationFormationFactory extends Factory
     {
         return [
             //
+            'formation_id' => \App\Models\Formation::inRandomOrder()->first()->id,
+            'niveau_id' => \App\Models\Niveau::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -16,6 +16,15 @@ return new class extends Migration
         Schema::create('affectation_formations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->foreignId('formation_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('niveau_id')
+                ->constrained()
+                 ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
