@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class QuizFactory extends Factory
 {
+    protected $model = Quiz::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +18,11 @@ class QuizFactory extends Factory
     public function definition()
     {
         return [
-            //
+            return [
+                'title' => fake()->sentence,
+                'description' => fake()->paragraph,
+                'module_id' => \App\Models\Module::inRandomOrder()->first()->id,
+             ];
         ];
     }
 }
